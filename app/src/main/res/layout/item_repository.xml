@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.balajiprabhu.trendingrepositories.model.data.GithubSearchModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/ic_repo"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="12dp"
+            android:loadIconUrl="@{viewModel.avatar}"
+            app:layout_constraintStart_toEndOf="@+id/guidelineLeft"
+            app:layout_constraintTop_toTopOf="parent"
+            tool:src="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/tv_repo_owner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:text="@{viewModel.userName}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/medium"
+            app:layout_constraintStart_toEndOf="@+id/ic_repo"
+            app:layout_constraintTop_toTopOf="parent"
+            tool:text="square" />
+
+        <TextView
+            android:id="@+id/tv_repo_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.repoName}"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="@dimen/medium"
+            app:layout_constraintStart_toEndOf="@+id/guidelineLeft"
+            app:layout_constraintTop_toBottomOf="@+id/tv_repo_owner"
+            tool:text="workflow-kotlin-compose" />
+
+        <TextView
+            android:id="@+id/tv_repo_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.repoDescription}"
+            android:textSize="@dimen/medium"
+            app:layout_constraintStart_toEndOf="@+id/guidelineLeft"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
+            app:layout_constraintTop_toBottomOf="@+id/tv_repo_title"
+            tool:text="A Swift and Kotlin library for making composable state machine, and UIs driven by those state machine" />
+
+        <ImageView
+            android:id="@+id/ic_language_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toEndOf="@+id/guidelineLeft"
+            app:layout_constraintTop_toBottomOf="@+id/tv_repo_description"
+            />
+
+        <TextView
+            android:id="@+id/tv_language_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:textSize="@dimen/medium"
+            android:text="@{viewModel.language}"
+            app:layout_constraintStart_toEndOf="@+id/ic_language_code"
+            app:layout_constraintTop_toBottomOf="@+id/tv_repo_description"
+            tool:text="Kotlin" />
+
+        <ImageView
+            android:id="@+id/ic_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/ic_star"
+            app:layout_constraintEnd_toStartOf="@+id/tv_start_count"
+            app:layout_constraintTop_toBottomOf="@+id/tv_repo_description" />
+
+        <TextView
+            android:id="@+id/tv_start_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@{viewModel.starCount}"
+            android:textSize="@dimen/medium"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
+            app:layout_constraintTop_toBottomOf="@+id/tv_repo_description"
+            tool:text="757" />
+
+        <View
+            android:id="@+id/line_divider"
+            android:layout_width="match_parent"
+            android:layout_height="0.6dp"
+            android:layout_marginTop="12dp"
+            android:alpha="0.5"
+            android:background="@color/light_grey"
+            app:layout_constraintTop_toBottomOf="@+id/tv_start_count" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="20dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
